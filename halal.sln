@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Halal", "Halal\Halal.csproj", "{914F74D4-09B2-4255-99B0-0837F57C61E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Halal.GUI", "Halal.GUI\Halal.GUI.csproj", "{F5A4508C-EC5E-4E93-98A7-6253C52C4E43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{914F74D4-09B2-4255-99B0-0837F57C61E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{914F74D4-09B2-4255-99B0-0837F57C61E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{914F74D4-09B2-4255-99B0-0837F57C61E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{914F74D4-09B2-4255-99B0-0837F57C61E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A4508C-EC5E-4E93-98A7-6253C52C4E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A4508C-EC5E-4E93-98A7-6253C52C4E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A4508C-EC5E-4E93-98A7-6253C52C4E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A4508C-EC5E-4E93-98A7-6253C52C4E43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {159C8A3A-624D-4B5B-8DDD-DC4CD3A003C1}
+	EndGlobalSection
+EndGlobal
