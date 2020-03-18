@@ -15,6 +15,12 @@
             this.elements = new List<TElement>(capacity);
         }
 
+        public TElement this[int i]
+        {
+            get { return this.elements[i]; }
+            set { this.elements[i] = value; }
+        }
+
         public int Count => this.elements.Count;
 
         public abstract double CalculateFitness();
@@ -56,6 +62,16 @@
                 this.Remove(oldItem);
                 this.elements.Insert(index, newItem);
             }
+        }
+
+        public void Insert(int index, TElement element)
+        {
+            this.elements.Insert(index, element);
+        }
+
+        public void InsertRange(int index, IEnumerable<TElement> elements)
+        {
+            this.elements.InsertRange(index, elements);
         }
 
         public void Clear()

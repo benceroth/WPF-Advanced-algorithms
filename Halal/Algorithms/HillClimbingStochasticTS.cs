@@ -15,7 +15,7 @@
         {
             this.solutions.Add(null);
             this.Solution = new Solution();
-            this.Solution.AddRange(problem);
+            this.Solution.AddRange(problem.OrderBy(x => this.Random.NextDouble()));
         }
 
         public Solution Solution

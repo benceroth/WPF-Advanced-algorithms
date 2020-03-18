@@ -57,9 +57,9 @@
             }
         }
 
-        private double GetProbability(double diff, double k = 1) => Math.Pow(Math.E, diff / (k * this.t));
+        private double GetProbability(double diff, double k = 1) => Math.Pow(Math.E, -Math.Abs(diff) / (k * this.t));
 
-        private double GetTemperature(double maxTemp = int.MaxValue, double alfa = 2) => maxTemp * Math.Pow(1 - (this.t / maxTemp), alfa);
+        private double GetTemperature(double maxTemp = 10000, double alfa = 2) => maxTemp * Math.Pow(1 - (this.t / maxTemp), alfa);
 
         private double GetRandomDouble(double limit = 10) => (this.Random.NextDouble() - 0.5) * limit;
 

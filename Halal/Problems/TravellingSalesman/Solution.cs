@@ -26,7 +26,7 @@
             return fitness;
         }
 
-        private double CalculateFitnessBetween(Town first, Town second)
+        internal double CalculateFitnessBetween(Town first, Town second)
         {
             if (first.Count != second.Count)
             {
