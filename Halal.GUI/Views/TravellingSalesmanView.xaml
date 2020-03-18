@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Halal.GUI.Views.FunctionApproximationView"
+﻿<UserControl x:Class="Halal.GUI.Views.TravellingSalesmanView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Padding="10">
     <UserControl.DataContext>
-        <vm:FunctionApproximationViewModel/>
+        <vm:TravellingSalesmanViewModel/>
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>

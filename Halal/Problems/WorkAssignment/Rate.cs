@@ -1,14 +1,16 @@
-﻿namespace Halal.Problems.FunctionApproximation
+﻿namespace Halal.Problems.WorkAssignment
 {
+    using System;
     using System.Collections.Generic;
+    using System.Text;
 
-    public sealed class Coefficient : List<double>, ISolutionElement
+    public sealed class Rate : List<double>, ISolutionElement
     {
-        public Coefficient()
+        public Rate()
         {
         }
 
-        public Coefficient(IEnumerable<double> items)
+        public Rate(IEnumerable<double> items)
             : base(items)
         {
         }

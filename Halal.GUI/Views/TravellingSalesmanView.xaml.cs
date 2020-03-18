@@ -17,14 +17,14 @@ namespace Halal.GUI.Views
     /// <summary>
     /// Interaction logic for FunctionApproximationView.xaml
     /// </summary>
-    public partial class FunctionApproximationView : UserControl
+    public partial class TravellingSalesmanView : UserControl
     {
-        public FunctionApproximationView()
+        public TravellingSalesmanView()
         {
             InitializeComponent();
         }
 
-        public FunctionApproximationViewModel ViewModel => this.DataContext as FunctionApproximationViewModel;
+        public TravellingSalesmanViewModel ViewModel => this.DataContext as TravellingSalesmanViewModel;
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class Value : List<double>, IProblemElement
+    public sealed class Value : List<double>, IProblemElement
     {
         public Value()
         {

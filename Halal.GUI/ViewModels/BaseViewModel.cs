@@ -17,8 +17,11 @@ namespace Halal.GUI.ViewModels
     {
         public void Draw()
         {
-            this.Plot();
-            this.PlotModel.InvalidatePlot(true);
+            if (this.IsRunning)
+            {
+                this.Plot();
+                this.PlotModel.InvalidatePlot(true);
+            }
         }
 
         public Algorithm<TProblemElement, TSolutionElement> Algorithm { get; set; }
@@ -27,7 +30,11 @@ namespace Halal.GUI.ViewModels
 
         public PlotModel PlotModel { get; private set; } = new PlotModel();
 
-        public abstract void Setup();
+        public virtual void Setup()
+        {
+            this.Plot();
+            this.PlotModel.InvalidatePlot(true);
+        }
 
         public void Start()
         {
@@ -40,7 +47,11 @@ namespace Halal.GUI.ViewModels
                     {
                         this.Algorithm.DoOneIteration();
                     }
-                }).Start();
+                })
+                {
+                    IsBackground = false,
+                    Priority = ThreadPriority.BelowNormal,
+                }.Start();
             }
         }
 
@@ -54,6 +65,8 @@ namespace Halal.GUI.ViewModels
             if (this.Algorithm != null)
             {
                 this.Algorithm = (Algorithm<TProblemElement, TSolutionElement>)Activator.CreateInstance(this.Algorithm.GetType(), new[] { this.Algorithm.Problem });
+                this.Plot();
+                this.PlotModel.InvalidatePlot(true);
             }
         }
 

@@ -7,19 +7,26 @@
         xmlns:views="clr-namespace:Halal.GUI.Views"
         xmlns:local="clr-namespace:Halal.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Róth Bence: HalAl" Height="800" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <views:FunctionApproximationView x:Name="FAV1" Grid.Column="0" Grid.Row="0"/>
-        <views:FunctionApproximationView x:Name="FAV2" Grid.Column="1" Grid.Row="0"/>
-        <views:FunctionApproximationView x:Name="FAV3" Grid.Column="0" Grid.Row="1"/>
-        <views:FunctionApproximationView x:Name="FAV4" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Text="Function approximation" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock Text="Traveling salesman" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock Text="Work assignment" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="20" Grid.Row="0" Grid.Column="2"/>
+        <views:FunctionApproximationView x:Name="FAV1" Grid.Column="0" Grid.Row="1"/>
+        <views:FunctionApproximationView x:Name="FAV2" Grid.Column="0" Grid.Row="2"/>
+        <views:TravellingSalesmanView x:Name="TS1" Grid.Column="1" Grid.Row="1"/>
+        <views:TravellingSalesmanView x:Name="TS2" Grid.Column="1" Grid.Row="2"/>
+        <views:WorkAssignmentView x:Name="WA1" Grid.Column="2" Grid.Row="1"/>
+        <views:WorkAssignmentView x:Name="WA2" Grid.Column="2" Grid.Row="2"/>
     </Grid>
 </Window>

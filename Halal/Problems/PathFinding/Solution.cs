@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    public class Solution : Solution<Move>
+    public sealed class Solution : Solution<Move>
     {
         public Solution(Move start, int dimensionCount = 2, int capacity = 1000)
             : base(dimensionCount, capacity)

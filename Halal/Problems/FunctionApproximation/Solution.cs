@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    public class Solution : Solution<Coefficient>
+    public sealed class Solution : Solution<Coefficient>
     {
         internal readonly Problem problem;
 
@@ -26,7 +26,7 @@
             }
             else if (this.problem.Count > 0)
             {
-                double[] coefficients = this.Select(x => x.First()).ToArray();
+                double[] coefficients = this.Select(x => x.Value).ToArray();
                 foreach (Value value in this.problem)
                 {
                     fitness += Math.Pow(this.CalculateY(value.First(), coefficients) - value.Last(), 2);

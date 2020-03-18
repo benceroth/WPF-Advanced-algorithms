@@ -1,15 +1,15 @@
-﻿using Halal.Algorithms;
-using Halal.IO;
-using Halal.Problems.FunctionApproximation;
+﻿using Halal.Problems.TravellingSalesman;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Halal.GUI.ViewModels
 {
-    public sealed class FunctionApproximationViewModel : BaseViewModel<Value, Coefficient>
+    public sealed class TravellingSalesmanViewModel : BaseViewModel<Town, Town>
     {
         public override void Setup()
         {
@@ -24,14 +24,8 @@ namespace Halal.GUI.ViewModels
         {
             var series = (LineSeries)this.PlotModel.Series.First();
             series.Points.Clear();
-            series.Points.AddRange(this.Algorithm.Problem.Select(element => new DataPoint(element.First(), this.CalculateY(element.First()))));
-            this.PlotModel.Title = this.Algorithm.Name + ":\r\n" + Math.Round(this.Algorithm.Solutions.First().CalculateFitness(),4).ToString();
-        }
-
-        private double CalculateY(double x)
-        {
-            double[] coefficients = this.Algorithm.Solutions.First().Select(y => y.First()).ToArray();
-            return (coefficients[0] * Math.Pow(x - coefficients[1], 3)) + (coefficients[2] * Math.Pow(x - coefficients[3], 2)) + coefficients[3];
+            series.Points.AddRange(this.Algorithm.Solutions.First().Select(element => new DataPoint(element.First(), element.Last())));
+            this.PlotModel.Title = this.Algorithm.Name + ":\r\n" + Math.Round(this.Algorithm.Solutions.First().CalculateFitness(), 4).ToString();
         }
     }
 }

@@ -2,11 +2,10 @@
 {
     using System.Collections.Generic;
 
-    public class Town : List<double>, ISolutionElement, IProblemElement
+    public sealed class Town : List<double>, ISolutionElement, IProblemElement
     {
         public Town()
         {
-
         }
 
         public Town(IEnumerable<double> items)

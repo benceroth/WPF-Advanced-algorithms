@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class Row : List<int>, IProblemElement
+    public sealed class Row : List<int>, IProblemElement
     {
         public Row()
         {

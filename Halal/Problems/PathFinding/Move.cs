@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class Move : List<int>, ISolutionElement
+    public sealed class Move : List<int>, ISolutionElement
     {
         public bool IsValid(int dimensionCount)
         {
