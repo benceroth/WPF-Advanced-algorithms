@@ -3,17 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Halal.Problems.TravellingSalesman;
-    using MathNet.Numerics.Distributions;
 
     public sealed class RandomOptimizationTS : Algorithm<Town, Town>
     {
-        private readonly Random Random = new Random();
-
-        private readonly Normal NormalDistRandom = new Normal(0, 1);
-
         public RandomOptimizationTS(Problem problem)
             : base(problem)
         {
@@ -22,23 +15,17 @@
             this.Solution.AddRange(problem.OrderBy(x => this.Random.NextDouble()));
         }
 
-        public Solution Solution
-        {
-            get => (Solution)this.solutions[0];
-            private set => this.solutions[0] = value;
-        }
-
         public override string Name { get; protected set; } = "Random Optimization";
 
         public override void DoOneIteration()
         {
-            var q = Enumerable.Range(0, Environment.ProcessorCount)
+            var next = Enumerable.Range(0, Environment.ProcessorCount)
                 .AsParallel()
                 .Select(x => this.GetNextSolution())
                 .OrderBy(x => x.CalculateFitness()).First();
-            if (this.Solution.CalculateFitness() > q.CalculateFitness())
+            if (this.Solution.CalculateFitness() > next.CalculateFitness())
             {
-                this.Solution = q;
+                this.Solution = next;
             }
         }
 
@@ -60,7 +47,7 @@
 
                 var next = this.Solution
                     .Except(solution)
-                    .OrderBy(x => this.Solution.CalculateFitnessBetween(town, x))
+                    .OrderBy(x => (this.Solution as Solution).CalculateFitnessBetween(town, x))
                     .Skip(random)
                     .FirstOrDefault();
 

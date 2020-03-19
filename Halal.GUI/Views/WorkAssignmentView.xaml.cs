@@ -1,27 +1,17 @@
-﻿using Halal.GUI.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace Halal.GUI.Views
+﻿namespace Halal.GUI.Views
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using Halal.GUI.ViewModels;
+
     /// <summary>
-    /// Interaction logic for FunctionApproximationView.xaml
+    /// Interaction logic for FunctionApproximationView.xaml.
     /// </summary>
     public partial class WorkAssignmentView : UserControl
     {
         public WorkAssignmentView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         public WorkAssignmentViewModel ViewModel => this.DataContext as WorkAssignmentViewModel;

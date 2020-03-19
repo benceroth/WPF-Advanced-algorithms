@@ -7,7 +7,7 @@
         where TElement : ISolutionElement
     {
         protected readonly int dimensionCount;
-        protected readonly List<TElement> elements;
+        private readonly List<TElement> elements;
 
         public Solution(int dimensionCount = 2, int capacity = 1000)
         {
@@ -15,13 +15,13 @@
             this.elements = new List<TElement>(capacity);
         }
 
+        public int Count => this.elements.Count;
+
         public TElement this[int i]
         {
             get { return this.elements[i]; }
             set { this.elements[i] = value; }
         }
-
-        public int Count => this.elements.Count;
 
         public abstract double CalculateFitness();
 

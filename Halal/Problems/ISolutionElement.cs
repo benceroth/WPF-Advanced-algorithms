@@ -2,7 +2,7 @@
 {
     using System.Collections;
 
-    public interface IProblemElement : IEnumerable
+    public interface ISolutionElement : IEnumerable
     {
         bool IsValid(int dimensionCount);
     }

@@ -1,13 +1,11 @@
 ﻿namespace Halal.Problems.WorkAssignment
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
 
     public sealed class Solution : Solution<Rate>
     {
-        internal readonly Problem problem;
+        private readonly Problem problem;
 
         public Solution(Problem problem, int capacity = 1000)
             : base(1, capacity)

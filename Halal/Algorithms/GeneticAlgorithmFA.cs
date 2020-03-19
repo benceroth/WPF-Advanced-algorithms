@@ -1,18 +1,13 @@
 ﻿namespace Halal.Algorithms
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Halal.Problems.FunctionApproximation;
-    using MathNet.Numerics.Distributions;
 
     public sealed class GeneticAlgorithmFA : Algorithm<Value, Coefficient>
     {
-        private const double MutationPropability = 0.4;
         private const int PopulationCount = 50;
-        private readonly Random Random = new Random();
-        private readonly Normal NormalDistRandom = new Normal(0, 1);
+        private const double MutationPropability = 0.4;
 
         public GeneticAlgorithmFA(Problem problem)
             : base(problem)
@@ -23,12 +18,6 @@
                 solution.AddRange(Enumerable.Range(0, 5).Select(x => this.GetRandomCoefficient()));
                 this.solutions.Add(solution);
             }
-        }
-
-        public Solution Solution
-        {
-            get => (Solution)this.solutions[0];
-            private set => this.solutions[0] = value;
         }
 
         public override string Name { get; protected set; } = "Genetic Algorithm";
@@ -70,7 +59,7 @@
 
         private Solution CrossOver(Solution first, Solution second)
         {
-            var solution = new Solution(this.Solution.problem);
+            var solution = new Solution(this.Problem);
             for (int i = 0; i < first.Count; i++)
             {
                 var rate = this.Random.NextDouble();
@@ -88,7 +77,7 @@
                 {
                     if (this.Random.NextDouble() > 0.5)
                     {
-                        coefficient.Value += ((this.Random.NextDouble() * 2) - 1) * this.NormalDistRandom.Sample();
+                        coefficient.Value += this.NormalDistRandom.Sample();
                     }
                 }
             }
@@ -96,8 +85,6 @@
             return solution;
         }
 
-        private double GetRandomDouble(double limit = 10) => (this.Random.NextDouble() - 0.5) * limit;
-
-        private Coefficient GetRandomCoefficient() => new Coefficient(new[] { this.GetRandomDouble() });
+        private Coefficient GetRandomCoefficient() => new Coefficient(new[] { this.NormalDistRandom.Sample() });
     }
 }

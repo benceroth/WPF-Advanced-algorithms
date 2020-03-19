@@ -1,14 +1,11 @@
-﻿using Halal.Problems.WorkAssignment;
-using OxyPlot;
-using OxyPlot.Axes;
-using OxyPlot.Series;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Halal.GUI.ViewModels
+﻿namespace Halal.GUI.ViewModels
 {
+    using System;
+    using System.Linq;
+    using Halal.Problems.WorkAssignment;
+    using OxyPlot.Axes;
+    using OxyPlot.Series;
+
     public sealed class WorkAssignmentViewModel : BaseViewModel<Person, Rate>
     {
         public override void Setup()

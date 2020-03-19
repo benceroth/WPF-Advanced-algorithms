@@ -1,14 +1,12 @@
-﻿using Halal.Algorithms;
-using Halal.IO;
-using Halal.Problems.FunctionApproximation;
-using OxyPlot;
-using OxyPlot.Axes;
-using OxyPlot.Series;
-using System;
-using System.Linq;
-
-namespace Halal.GUI.ViewModels
+﻿namespace Halal.GUI.ViewModels
 {
+    using System;
+    using System.Linq;
+    using Halal.Problems.FunctionApproximation;
+    using OxyPlot;
+    using OxyPlot.Axes;
+    using OxyPlot.Series;
+
     public sealed class FunctionApproximationViewModel : BaseViewModel<Value, Coefficient>
     {
         public override void Setup()
@@ -25,7 +23,7 @@ namespace Halal.GUI.ViewModels
             var series = (LineSeries)this.PlotModel.Series.First();
             series.Points.Clear();
             series.Points.AddRange(this.Algorithm.Problem.Select(element => new DataPoint(element.First(), this.CalculateY(element.First()))));
-            this.PlotModel.Title = this.Algorithm.Name + ":\r\n" + Math.Round(this.Algorithm.Solutions.First().CalculateFitness(),4).ToString();
+            this.PlotModel.Title = this.Algorithm.Name + ":\r\n" + Math.Round(this.Algorithm.Solutions.First().CalculateFitness(), 4).ToString();
         }
 
         private double CalculateY(double x)

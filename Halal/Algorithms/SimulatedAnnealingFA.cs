@@ -1,16 +1,18 @@
 ﻿namespace Halal.Algorithms
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Halal.Problems.FunctionApproximation;
 
-    public class SimulatedAnnealingFA : Algorithm<Value, Coefficient>
+    public sealed class SimulatedAnnealingFA : Algorithm<Value, Coefficient>
     {
-        private readonly Random Random = new Random();
-        private Solution p;
-        private double t = 1;
+        private const double K = 1;
+        private const double Alfa = 2;
+        private const double Epsilon = 0.0001;
+        private const double MaxTemperature = 10000;
+
+        private Solution temporary;
+        private double temperature = 1;
 
         public SimulatedAnnealingFA(Problem problem)
             : base(problem)
@@ -18,63 +20,54 @@
             this.solutions.Add(null);
             this.Solution = new Solution(problem);
             this.Solution.AddRange(Enumerable.Range(0, 5).Select(x => this.GetRandomCoefficient()));
-            this.p = this.GetNextSolution(null, null);
-        }
-
-        public Solution Solution
-        {
-            get => (Solution)this.solutions[0];
-            private set => this.solutions[0] = value;
+            this.temporary = this.GetNextSolution(null, null);
         }
 
         public override string Name { get; protected set; } = "Simulated Annealing";
 
         public override void DoOneIteration()
         {
-            foreach (Coefficient coefficient in this.p)
+            foreach (Coefficient coefficient in this.temporary)
             {
-                var q = this.GetNextSolution(coefficient, this.GetNextCoefficient(coefficient));
-                double qFitness = q.CalculateFitness();
-                double pFitness = this.p.CalculateFitness();
-                var diff = qFitness - pFitness;
-
+                var next = this.GetNextSolution(coefficient, this.GetNextCoefficient(coefficient));
+                double tempFitness = next.CalculateFitness();
+                double nextFitness = this.temporary.CalculateFitness();
+                var diff = tempFitness - nextFitness;
                 if (diff < 0)
                 {
-                    this.p = q;
-                    if (qFitness < this.Solution.CalculateFitness())
+                    this.temporary = next;
+                    if (tempFitness < this.Solution.CalculateFitness())
                     {
-                        this.Solution = q;
+                        this.Solution = next;
                     }
                 }
                 else
                 {
-                    this.t = this.GetTemperature();
+                    this.temperature = this.GetTemperature();
                     if (this.Random.NextDouble() < this.GetProbability(diff))
                     {
-                        this.p = q;
+                        this.temporary = next;
                     }
                 }
             }
         }
 
-        private double GetProbability(double diff, double k = 1) => Math.Pow(Math.E, -Math.Abs(diff) / (k * this.t));
-
-        private double GetTemperature(double maxTemp = 10000, double alfa = 2) => maxTemp * Math.Pow(1 - (this.t / maxTemp), alfa);
-
-        private double GetRandomDouble(double limit = 10) => (this.Random.NextDouble() - 0.5) * limit;
-
-        private Coefficient GetRandomCoefficient() => new Coefficient(new[] { this.GetRandomDouble() });
-
-        private double GetNextValue(Coefficient coefficient, double epsilon = 0.0001) => this.GetRandomDouble() >= 0 ? coefficient.First() + epsilon : coefficient.First() - epsilon;
-
-        private Coefficient GetNextCoefficient(Coefficient coefficient, int multiplier = 1) => new Coefficient(new[] { this.GetNextValue(coefficient) * multiplier });
-
         private Solution GetNextSolution(Coefficient oldCoefficient, Coefficient newCoefficient)
         {
-            var solution = new Solution(this.Solution.problem);
+            var solution = new Solution(this.Problem);
             solution.AddRange(this.Solution);
             solution.Replace(oldCoefficient, newCoefficient);
             return solution;
         }
+
+        private double GetProbability(double diff) => Math.Pow(Math.E, -Math.Abs(diff) / (K * this.temperature));
+
+        private double GetTemperature() => MaxTemperature * Math.Pow(1 - (this.temperature / MaxTemperature), Alfa);
+
+        private double GetNextValue(Coefficient coefficient) => this.Random.NextDouble() >= 0 ? coefficient.Value + Epsilon : coefficient.Value - Epsilon;
+
+        private Coefficient GetRandomCoefficient() => new Coefficient(new[] { this.NormalDistRandom.Sample() });
+
+        private Coefficient GetNextCoefficient(Coefficient coefficient, int multiplier = 1) => new Coefficient(new[] { this.GetNextValue(coefficient) * multiplier });
     }
 }

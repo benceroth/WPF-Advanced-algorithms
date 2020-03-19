@@ -1,40 +1,20 @@
-﻿using Halal.Algorithms;
-using Halal.IO;
-using Halal.Problems;
-using OxyPlot;
-using OxyPlot.Axes;
-using OxyPlot.Series;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Halal.GUI.ViewModels
+﻿namespace Halal.GUI.ViewModels
 {
+    using System;
+    using System.Threading;
+    using Halal.Algorithms;
+    using Halal.Problems;
+    using OxyPlot;
+
     public abstract class BaseViewModel<TProblemElement, TSolutionElement>
         where TProblemElement : IProblemElement
         where TSolutionElement : ISolutionElement
     {
-        public void Draw()
-        {
-            if (this.IsRunning)
-            {
-                this.Plot();
-                this.PlotModel.InvalidatePlot(true);
-            }
-        }
-
-        public Algorithm<TProblemElement, TSolutionElement> Algorithm { get; set; }
-
-        public bool IsRunning { get; protected set; }
+        public bool IsRunning { get; private set; }
 
         public PlotModel PlotModel { get; private set; } = new PlotModel();
 
-        public virtual void Setup()
-        {
-            this.Plot();
-            this.PlotModel.InvalidatePlot(true);
-        }
+        public Algorithm<TProblemElement, TSolutionElement> Algorithm { get; set; }
 
         public void Start()
         {
@@ -43,7 +23,7 @@ namespace Halal.GUI.ViewModels
                 this.IsRunning = true;
                 new Thread(() =>
                 {
-                    while (IsRunning)
+                    while (this.IsRunning)
                     {
                         this.Algorithm.DoOneIteration();
                     }
@@ -60,6 +40,15 @@ namespace Halal.GUI.ViewModels
             this.IsRunning = false;
         }
 
+        public void Draw()
+        {
+            if (this.IsRunning)
+            {
+                this.Plot();
+                this.PlotModel.InvalidatePlot(true);
+            }
+        }
+
         public void Regenerate()
         {
             if (this.Algorithm != null)
@@ -68,6 +57,12 @@ namespace Halal.GUI.ViewModels
                 this.Plot();
                 this.PlotModel.InvalidatePlot(true);
             }
+        }
+
+        public virtual void Setup()
+        {
+            this.Plot();
+            this.PlotModel.InvalidatePlot(true);
         }
 
         protected abstract void Plot();

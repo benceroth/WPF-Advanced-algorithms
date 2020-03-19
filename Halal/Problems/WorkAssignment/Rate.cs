@@ -1,8 +1,6 @@
 ﻿namespace Halal.Problems.WorkAssignment
 {
-    using System;
     using System.Collections.Generic;
-    using System.Text;
 
     public sealed class Rate : List<double>, ISolutionElement
     {

@@ -5,9 +5,9 @@
 
     public sealed class Solution : Solution<Coefficient>
     {
-        internal readonly Problem problem;
+        private readonly Problem<Value> problem;
 
-        public Solution(Problem problem, int capacity = 1000)
+        public Solution(Problem<Value> problem, int capacity = 1000)
             : base(1, capacity)
         {
             this.problem = problem ?? throw new ArgumentNullException(nameof(problem));

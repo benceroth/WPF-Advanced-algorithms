@@ -1,14 +1,12 @@
 ﻿namespace Halal.Algorithms
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Halal.Problems.WorkAssignment;
 
-    public class HillClimbingStochasticWA : Algorithm<Person, Rate>
+    public sealed class HillClimbingStochasticWA : Algorithm<Person, Rate>
     {
-        private readonly Random Random = new Random();
+        private const double Epsilon = 0.001;
 
         public HillClimbingStochasticWA(Problem problem)
             : base(problem)
@@ -18,43 +16,32 @@
             this.Solution.AddRange(this.GetRandomRates());
         }
 
-        public Solution Solution
-        {
-            get => (Solution)this.solutions[0];
-            private set => this.solutions[0] = value;
-        }
-
         public override string Name { get; protected set; } = "Hill Climbing Stochastic";
+
+        private new Problem Problem => base.Problem as Problem;
 
         public override void DoOneIteration()
         {
             foreach (Rate rate in this.Solution)
             {
-                var q = this.GetNextSolution(rate);
-
-                if (this.Solution.CalculateFitness() > q.CalculateFitness())
+                var next = this.GetNextSolution(rate);
+                if (this.Solution.CalculateFitness() > next.CalculateFitness())
                 {
-                    this.Solution = q;
+                    this.Solution = next;
                 }
             }
         }
 
-        private double GetRandomDouble() => this.Random.NextDouble();
-
-        private double GetNextValue(Rate rate, double epsilon = 0.001) => this.GetRandomDouble() >= 0.5 ? rate.Value + epsilon : ((rate.Value - epsilon) > 0 ? rate.Value - epsilon : 0);
-
-        private Rate GetNextRate(Rate rate) => new Rate(new[] { this.GetNextValue(rate) });
-
         private Solution GetNextSolution(Rate rate)
         {
             var newRate = this.GetNextRate(rate);
-            double diff = rate.Value - newRate.Value + this.Solution.problem.RequestedTime - this.Solution.Sum(x => x.Value);
-            double sum = this.Solution.problem.RequestedTime - rate.Value;
-            var solution = new Solution(this.Solution.problem);
+            double diff = rate.Value - newRate.Value + this.Problem.RequestedTime - this.Solution.Sum(x => x.Value);
+            double sum = this.Problem.RequestedTime - rate.Value;
+            var solution = new Solution(this.Problem);
             solution.AddRange(this.Solution);
             solution.Replace(rate, newRate);
 
-            for (int i = 0; i < this.Solution.problem.Count; i++)
+            for (int i = 0; i < this.Problem.Count; i++)
             {
                 var element = solution.ElementAt(i);
                 if (element != newRate)
@@ -69,10 +56,10 @@
 
         private IEnumerable<Rate> GetRandomRates()
         {
-            double sum = this.Solution.problem.RequestedTime;
-            for (int i = 0; i < this.Solution.problem.Count; i++)
+            double sum = this.Problem.RequestedTime;
+            for (int i = 0; i < this.Problem.Count; i++)
             {
-                if (i + 1 == this.Solution.problem.Count)
+                if (i + 1 == this.Problem.Count)
                 {
                     yield return new Rate(new[] { sum });
                 }
@@ -84,5 +71,9 @@
                 }
             }
         }
+
+        private double GetNextValue(Rate rate) => this.Random.NextDouble() >= 0.5 ? rate.Value + Epsilon : ((rate.Value - Epsilon) > 0 ? rate.Value - Epsilon : 0);
+
+        private Rate GetNextRate(Rate rate) => new Rate(new[] { this.GetNextValue(rate) });
     }
 }
