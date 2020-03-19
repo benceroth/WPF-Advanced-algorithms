@@ -13,7 +13,11 @@
         {
         }
 
-        public double Value => this[0];
+        public double Value
+        {
+            get => this[0];
+            set => this[0] = value;
+        }
 
         public bool IsValid(int dimensionCount)
         {

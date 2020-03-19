@@ -64,6 +64,29 @@
             }
         }
 
+        public void Swap(int oldIndex, int newIndex)
+        {
+            if (oldIndex != newIndex && oldIndex >= 0 && newIndex < this.Count)
+            {
+                TElement oldElement = this[oldIndex];
+                TElement newElement = this[newIndex];
+                if (newIndex > oldIndex)
+                {
+                    this.Remove(newElement);
+                    this.Insert(newIndex, oldElement);
+                    this.Remove(oldElement);
+                    this.Insert(oldIndex, newElement);
+                }
+                else
+                {
+                    this.Remove(oldElement);
+                    this.Insert(oldIndex, newElement);
+                    this.Remove(newElement);
+                    this.Insert(newIndex, oldElement);
+                }
+            }
+        }
+
         public void Insert(int index, TElement element)
         {
             this.elements.Insert(index, element);
@@ -72,6 +95,11 @@
         public void InsertRange(int index, IEnumerable<TElement> elements)
         {
             this.elements.InsertRange(index, elements);
+        }
+
+        public int IndexOf(TElement element)
+        {
+            return this.elements.IndexOf(element);
         }
 
         public void Clear()

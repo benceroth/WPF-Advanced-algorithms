@@ -39,11 +39,10 @@ namespace Halal.GUI
         {
             var faProblem = new ImportFunctionApproximation().FromFile("FA.txt");
             var tsProblem = new ImportTravellingSalesman().FromFile("TS.txt");
-            var tsgaProblem = new ImportTravellingSalesman().FromFile("TSGA.txt");
             var waProblem = new ImportWorkAssignment().FromFile("WA.txt");
-            this.FAV1.ViewModel.Algorithm = new RandomOptimizationFA(faProblem);
+            this.FAV1.ViewModel.Algorithm = new GeneticAlgorithmFA(faProblem);
             this.FAV2.ViewModel.Algorithm = new HillClimbingStochasticFA(faProblem);
-            this.TS1.ViewModel.Algorithm = new GeneticAlgorithmTS(tsgaProblem);
+            this.TS1.ViewModel.Algorithm = new RandomOptimizationTS(tsProblem);
             this.TS2.ViewModel.Algorithm = new HillClimbingStochasticTS(tsProblem);
             this.WA1.ViewModel.Algorithm = new SimulatedAnnealingWA(waProblem);
             this.WA2.ViewModel.Algorithm = new HillClimbingStochasticWA(waProblem);
