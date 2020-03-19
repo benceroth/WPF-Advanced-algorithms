@@ -32,15 +32,17 @@
 
         public override void DoOneIteration()
         {
-            var randoms = Enumerable.Range(0, Environment.ProcessorCount).AsParallel().Select(x => this.GetNextSolution().Result).ToList();
-            var q = randoms.OrderBy(x => x.CalculateFitness()).First();
+            var q = Enumerable.Range(0, Environment.ProcessorCount)
+                .AsParallel()
+                .Select(x => this.GetNextSolution())
+                .OrderBy(x => x.CalculateFitness()).First();
             if (this.Solution.CalculateFitness() > q.CalculateFitness())
             {
                 this.Solution = q;
             }
         }
 
-        private async Task<Solution> GetNextSolution()
+        private Solution GetNextSolution()
         {
             var added = new HashSet<Town>();
             var solution = new Solution();
