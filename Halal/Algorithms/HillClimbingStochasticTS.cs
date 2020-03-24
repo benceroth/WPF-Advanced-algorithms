@@ -4,10 +4,15 @@
     using System.Linq;
     using Halal.Problems.TravellingSalesman;
 
+    /// <inheritdoc/>
     public sealed class HillClimbingStochasticTS : Algorithm<Town, Town>
     {
         private const int Epsilon = 10;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HillClimbingStochasticTS"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public HillClimbingStochasticTS(Problem problem)
             : base(problem)
         {
@@ -16,8 +21,10 @@
             this.Solution.AddRange(problem.OrderBy(x => this.Random.NextDouble()));
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Hill Climbing Stochastic";
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             foreach (Town town in this.Solution)

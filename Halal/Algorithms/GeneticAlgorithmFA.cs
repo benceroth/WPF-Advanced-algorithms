@@ -4,11 +4,16 @@
     using System.Linq;
     using Halal.Problems.FunctionApproximation;
 
+    /// <inheritdoc/>
     public sealed class GeneticAlgorithmFA : Algorithm<Value, Coefficient>
     {
         private const int PopulationCount = 50;
-        private const double MutationPropability = 0.4;
+        private const double MutationProbability = 0.4;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GeneticAlgorithmFA"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public GeneticAlgorithmFA(Problem problem)
             : base(problem)
         {
@@ -20,8 +25,10 @@
             }
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Genetic Algorithm";
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             var population = new List<Solution>();
@@ -71,7 +78,7 @@
 
         private Solution Mutate(Solution solution)
         {
-            if (this.Random.NextDouble() < MutationPropability)
+            if (this.Random.NextDouble() < MutationProbability)
             {
                 foreach (var coefficient in solution)
                 {

@@ -1,0 +1,619 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Halal</name>
+    </assembly>
+    <members>
+        <member name="T:Halal.Algorithms.Algorithm`2">
+            <summary>
+            Defines an algorithm.
+            </summary>
+            <typeparam name="TProblemElement">Problem type to be solved.</typeparam>
+            <typeparam name="TSolutionElement">Solution type for the problem.</typeparam>
+        </member>
+        <member name="F:Halal.Algorithms.Algorithm`2.solutions">
+            <summary>
+            List of solutions.
+            </summary>
+        </member>
+        <member name="M:Halal.Algorithms.Algorithm`2.#ctor(Halal.Problems.Problem{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.Algorithm`2"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.Algorithm`2.Name">
+            <summary>
+            Gets or sets name of the algorithm.
+            </summary>
+        </member>
+        <member name="P:Halal.Algorithms.Algorithm`2.Problem">
+            <summary>
+            Gets problem of the algorithm.
+            </summary>
+        </member>
+        <member name="P:Halal.Algorithms.Algorithm`2.Solution">
+            <summary>
+            Gets or sets best solution.
+            </summary>
+        </member>
+        <member name="P:Halal.Algorithms.Algorithm`2.Solutions">
+            <summary>
+            Gets a list of solutions.
+            </summary>
+        </member>
+        <member name="P:Halal.Algorithms.Algorithm`2.Random">
+            <summary>
+            Gets random generator.
+            </summary>
+        </member>
+        <member name="P:Halal.Algorithms.Algorithm`2.NormalDistRandom">
+            <summary>
+            Gets normal distributed random generator.
+            </summary>
+        </member>
+        <member name="M:Halal.Algorithms.Algorithm`2.DoOneIteration">
+            <summary>
+            Calculates one iteration.
+            </summary>
+        </member>
+        <member name="T:Halal.Algorithms.GeneticAlgorithmFA">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.GeneticAlgorithmFA.#ctor(Halal.Problems.FunctionApproximation.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.GeneticAlgorithmFA"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.GeneticAlgorithmFA.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.GeneticAlgorithmFA.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.HillClimbingStochasticFA">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.HillClimbingStochasticFA.#ctor(Halal.Problems.FunctionApproximation.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.HillClimbingStochasticFA"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.HillClimbingStochasticFA.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.HillClimbingStochasticFA.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.HillClimbingStochasticTS">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.HillClimbingStochasticTS.#ctor(Halal.Problems.TravellingSalesman.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.HillClimbingStochasticTS"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.HillClimbingStochasticTS.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.HillClimbingStochasticTS.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.HillClimbingStochasticWA">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.HillClimbingStochasticWA.#ctor(Halal.Problems.WorkAssignment.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.HillClimbingStochasticWA"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.HillClimbingStochasticWA.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.HillClimbingStochasticWA.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.RandomOptimizationFA">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.RandomOptimizationFA.#ctor(Halal.Problems.FunctionApproximation.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.RandomOptimizationFA"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.RandomOptimizationFA.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.RandomOptimizationFA.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.RandomOptimizationTS">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.RandomOptimizationTS.#ctor(Halal.Problems.TravellingSalesman.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.RandomOptimizationTS"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.RandomOptimizationTS.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.RandomOptimizationTS.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.SimulatedAnnealingFA">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.SimulatedAnnealingFA.#ctor(Halal.Problems.FunctionApproximation.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.SimulatedAnnealingFA"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.SimulatedAnnealingFA.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.SimulatedAnnealingFA.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.SimulatedAnnealingTS">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.SimulatedAnnealingTS.#ctor(Halal.Problems.TravellingSalesman.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.SimulatedAnnealingTS"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.SimulatedAnnealingTS.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.SimulatedAnnealingTS.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Algorithms.SimulatedAnnealingWA">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.SimulatedAnnealingWA.#ctor(Halal.Problems.WorkAssignment.Problem)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Algorithms.SimulatedAnnealingWA"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+        </member>
+        <member name="P:Halal.Algorithms.SimulatedAnnealingWA.Name">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Algorithms.SimulatedAnnealingWA.DoOneIteration">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.IO.Import`1">
+            <summary>
+            Defines an import operation.
+            </summary>
+            <typeparam name="T">Imported type.</typeparam>
+        </member>
+        <member name="M:Halal.IO.Import`1.FromFile(System.String)">
+            <summary>
+            Imports an element from a file.
+            </summary>
+            <param name="path">Path of the file.</param>
+            <returns>Element.</returns>
+        </member>
+        <member name="M:Halal.IO.Import`1.FromText(System.String[][])">
+            <summary>
+            Imports an element from text.
+            </summary>
+            <param name="text">Text.</param>
+            <returns>Element.</returns>
+        </member>
+        <member name="M:Halal.IO.Import`1.ReadFile(System.String)">
+            <summary>
+            Reads content of file.
+            </summary>
+            <param name="path">Path of file.</param>
+            <returns>Strings based on lines and commas.</returns>
+        </member>
+        <member name="T:Halal.IO.ImportFunctionApproximation">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.IO.ImportFunctionApproximation.FromText(System.String[][])">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.IO.ImportPathFinding">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.IO.ImportPathFinding.FromText(System.String[][])">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.IO.ImportTravellingSalesman">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.IO.ImportTravellingSalesman.FromText(System.String[][])">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.IO.ImportWorkAssignment">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.IO.ImportWorkAssignment.FromText(System.String[][])">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.FunctionApproximation.Coefficient">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Coefficient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.FunctionApproximation.Coefficient"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Coefficient.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.FunctionApproximation.Coefficient"/> class.
+            </summary>
+            <param name="items">Initial items.</param>
+        </member>
+        <member name="P:Halal.Problems.FunctionApproximation.Coefficient.Value">
+            <summary>
+            Gets or sets value.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Coefficient.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.FunctionApproximation.Problem">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Problem.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.FunctionApproximation.Problem"/> class.
+            </summary>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="T:Halal.Problems.FunctionApproximation.Solution">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Solution.#ctor(Halal.Problems.Problem{Halal.Problems.FunctionApproximation.Value},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.FunctionApproximation.Solution"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Solution.CalculateFitness">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.FunctionApproximation.Value">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Value.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.FunctionApproximation.Value"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Value.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.FunctionApproximation.Value"/> class.
+            </summary>
+            <param name="items">Initial items.</param>
+        </member>
+        <member name="M:Halal.Problems.FunctionApproximation.Value.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.IProblemElement">
+            <summary>
+            Defines a problem element.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.IProblemElement.IsValid(System.Int32)">
+            <summary>
+            Determines if problem element is valid.
+            </summary>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <returns>Value indicating whether problem element is valid.</returns>
+        </member>
+        <member name="T:Halal.Problems.ISolutionElement">
+            <summary>
+            Defines a solution element.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.ISolutionElement.IsValid(System.Int32)">
+            <summary>
+            Determines if solution element is valid.
+            </summary>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <returns>Value indicating whether solution element is valid.</returns>
+        </member>
+        <member name="T:Halal.Problems.PathFinding.Move">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Move.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.PathFinding.Problem">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Problem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.PathFinding.Problem"/> class.
+            </summary>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="T:Halal.Problems.PathFinding.Row">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Row.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.PathFinding.Row"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Row.#ctor(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.PathFinding.Row"/> class.
+            </summary>
+            <param name="items">Initial items.</param>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Row.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.PathFinding.Solution">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Solution.#ctor(Halal.Problems.PathFinding.Move,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.PathFinding.Solution"/> class.
+            </summary>
+            <param name="start">Start position.</param>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="M:Halal.Problems.PathFinding.Solution.CalculateFitness">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.Problem`1">
+            <summary>
+            Defines a problem.
+            </summary>
+            <typeparam name="TElement">Problem element type.</typeparam>
+        </member>
+        <member name="M:Halal.Problems.Problem`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.Problem`1"/> class.
+            </summary>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="P:Halal.Problems.Problem`1.Count">
+            <summary>
+            Gets elements count.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.Problem`1.Add(`0)">
+            <summary>
+            Adds an element.
+            </summary>
+            <param name="element">Element.</param>
+        </member>
+        <member name="M:Halal.Problems.Problem`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds a range of elements.
+            </summary>
+            <param name="elements">Elements.</param>
+        </member>
+        <member name="M:Halal.Problems.Problem`1.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.Problem`1.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.Solution`1">
+            <summary>
+            Defines a solution.
+            </summary>
+            <typeparam name="TElement">Solution element type.</typeparam>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.Solution`1"/> class.
+            </summary>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="P:Halal.Problems.Solution`1.Count">
+            <summary>
+            Gets elements count.
+            </summary>
+        </member>
+        <member name="P:Halal.Problems.Solution`1.DimensionCount">
+            <summary>
+            Gets dimensions of an element.
+            </summary>
+        </member>
+        <member name="P:Halal.Problems.Solution`1.Item(System.Int32)">
+            <summary>
+            Returns appropriate element specified by index.
+            </summary>
+            <param name="i">Index.</param>
+            <returns>Element.</returns>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.CalculateFitness">
+            <summary>
+            Calculates fitness.
+            </summary>
+            <returns>Fitness.</returns>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.Add(`0)">
+            <summary>
+            Adds an element.
+            </summary>
+            <param name="element">Element.</param>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds a range of elements.
+            </summary>
+            <param name="elements">Elements.</param>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.Remove(`0)">
+            <summary>
+            Removes an element.
+            </summary>
+            <param name="element">Element.</param>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.Replace(`0,`0)">
+            <summary>
+            Replaces an old item with a new item keeping the index.
+            </summary>
+            <param name="oldItem">Item to be removed.</param>
+            <param name="newItem">Item to be put.</param>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.Solution`1.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.TravellingSalesman.Problem">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Problem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.TravellingSalesman.Problem"/> class.
+            </summary>
+            <param name="dimensionCount">Indicating dimensions of an element.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="T:Halal.Problems.TravellingSalesman.Solution">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Solution.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.TravellingSalesman.Solution"/> class.
+            </summary>
+            <param name="dimensionCount">Indicates dimensions of an element.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Solution.CalculateFitness">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Solution.CalculateFitnessBetween(Halal.Problems.TravellingSalesman.Town,Halal.Problems.TravellingSalesman.Town)">
+            <summary>
+            Calculates fitness between two towns.
+            </summary>
+            <param name="first">First town.</param>
+            <param name="second">Second town.</param>
+            <returns>Fitness.</returns>
+        </member>
+        <member name="T:Halal.Problems.TravellingSalesman.Town">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Town.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.TravellingSalesman.Town"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Town.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.TravellingSalesman.Town"/> class.
+            </summary>
+            <param name="items">Initial items.</param>
+        </member>
+        <member name="M:Halal.Problems.TravellingSalesman.Town.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.WorkAssignment.Person">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Person.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.WorkAssignment.Person"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Person.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.WorkAssignment.Person"/> class.
+            </summary>
+            <param name="items">Initial items.</param>
+        </member>
+        <member name="P:Halal.Problems.WorkAssignment.Person.Salary">
+            <summary>
+            Gets salary.
+            </summary>
+        </member>
+        <member name="P:Halal.Problems.WorkAssignment.Person.Quality">
+            <summary>
+            Gets quality.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Person.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.WorkAssignment.Problem">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Problem.#ctor(System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.WorkAssignment.Problem"/> class.
+            </summary>
+            <param name="requestedTime">Time to be divided.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="P:Halal.Problems.WorkAssignment.Problem.RequestedTime">
+            <summary>
+            Gets requested time.
+            </summary>
+        </member>
+        <member name="T:Halal.Problems.WorkAssignment.Rate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Rate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.WorkAssignment.Rate"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Rate.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.WorkAssignment.Rate"/> class.
+            </summary>
+            <param name="items">Initial items.</param>
+        </member>
+        <member name="P:Halal.Problems.WorkAssignment.Rate.Value">
+            <summary>
+            Gets value.
+            </summary>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Rate.IsValid(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.Problems.WorkAssignment.Solution">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Solution.#ctor(Halal.Problems.WorkAssignment.Problem,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.Problems.WorkAssignment.Solution"/> class.
+            </summary>
+            <param name="problem">Problem to be solved.</param>
+            <param name="capacity">Initial capacity.</param>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Solution.CalculateFitness">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Solution.CalculateSalary">
+            <summary>
+            Calculates salary.
+            </summary>
+            <returns>Salary.</returns>
+        </member>
+        <member name="M:Halal.Problems.WorkAssignment.Solution.CalculateQuality">
+            <summary>
+            Calculates quality.
+            </summary>
+            <returns>Quality.</returns>
+        </member>
+    </members>
+</doc>

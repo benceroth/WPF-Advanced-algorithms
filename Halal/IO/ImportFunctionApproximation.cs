@@ -1,13 +1,12 @@
 ﻿namespace Halal.IO
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Halal.Problems.FunctionApproximation;
 
+    /// <inheritdoc/>
     public class ImportFunctionApproximation : Import<Problem>
     {
+        /// <inheritdoc/>
         protected override Problem FromText(string[][] text)
         {
             int rows = text.Length;

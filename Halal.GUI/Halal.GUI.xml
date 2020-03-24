@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Halal.GUI</name>
+    </assembly>
+    <members>
+        <member name="T:Halal.GUI.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Halal.GUI.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.GUI.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.MainWindow.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Halal.GUI.ViewModels.BaseViewModel`2">
+            <summary>
+            Defines a view model for plotting an algorithm.
+            </summary>
+            <typeparam name="TProblemElement">Problem type to be solved.</typeparam>
+            <typeparam name="TSolutionElement">Solution type for the problem.</typeparam>
+        </member>
+        <member name="P:Halal.GUI.ViewModels.BaseViewModel`2.IsRunning">
+            <summary>
+            Gets a value indicating whether algorithm is running.
+            </summary>
+        </member>
+        <member name="P:Halal.GUI.ViewModels.BaseViewModel`2.PlotModel">
+            <summary>
+            Gets PlotModel.
+            </summary>
+        </member>
+        <member name="P:Halal.GUI.ViewModels.BaseViewModel`2.Algorithm">
+            <summary>
+            Gets or sets Algorithm.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.BaseViewModel`2.Start">
+            <summary>
+            Starts plotting and runs algorithm.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.BaseViewModel`2.Stop">
+            <summary>
+            Stops plotting and algorithm.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.BaseViewModel`2.Draw">
+            <summary>
+            Draws the PlotModel.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.BaseViewModel`2.Regenerate">
+            <summary>
+            Regenerate algorithm so starting position can change.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.BaseViewModel`2.Setup">
+            <summary>
+            Setup PlotModel.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.BaseViewModel`2.Plot">
+            <summary>
+            Plots algorithm on PlotModel.
+            </summary>
+        </member>
+        <member name="T:Halal.GUI.ViewModels.FunctionApproximationViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.FunctionApproximationViewModel.Setup">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.FunctionApproximationViewModel.Plot">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.GUI.ViewModels.TravellingSalesmanViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.TravellingSalesmanViewModel.Setup">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.TravellingSalesmanViewModel.Plot">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.GUI.ViewModels.WorkAssignmentViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.WorkAssignmentViewModel.Setup">
+            <inheritdoc/>
+        </member>
+        <member name="M:Halal.GUI.ViewModels.WorkAssignmentViewModel.Plot">
+            <inheritdoc/>
+        </member>
+        <member name="T:Halal.GUI.Views.FunctionApproximationView">
+            <summary>
+            Interaction logic for FunctionApproximationView.xaml.
+            </summary>
+            <summary>
+            FunctionApproximationView
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.Views.FunctionApproximationView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.GUI.Views.FunctionApproximationView"/> class.
+            </summary>
+        </member>
+        <member name="P:Halal.GUI.Views.FunctionApproximationView.ViewModel">
+            <summary>
+            Gets ViewModel.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.Views.FunctionApproximationView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Halal.GUI.Views.TravellingSalesmanView">
+            <summary>
+            Interaction logic for FunctionApproximationView.xaml.
+            </summary>
+            <summary>
+            TravellingSalesmanView
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.Views.TravellingSalesmanView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.GUI.Views.TravellingSalesmanView"/> class.
+            </summary>
+        </member>
+        <member name="P:Halal.GUI.Views.TravellingSalesmanView.ViewModel">
+            <summary>
+            Gets ViewModel.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.Views.TravellingSalesmanView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Halal.GUI.Views.WorkAssignmentView">
+            <summary>
+            Interaction logic for FunctionApproximationView.xaml.
+            </summary>
+            <summary>
+            WorkAssignmentView
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.Views.WorkAssignmentView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Halal.GUI.Views.WorkAssignmentView"/> class.
+            </summary>
+        </member>
+        <member name="P:Halal.GUI.Views.WorkAssignmentView.ViewModel">
+            <summary>
+            Gets ViewModel.
+            </summary>
+        </member>
+        <member name="M:Halal.GUI.Views.WorkAssignmentView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

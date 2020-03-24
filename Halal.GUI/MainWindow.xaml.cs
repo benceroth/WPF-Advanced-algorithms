@@ -17,6 +17,9 @@
         private readonly Timer timer;
         private bool initialized;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class.
+        /// </summary>
         public MainWindow()
         {
             this.InitializeComponent();
@@ -24,6 +27,7 @@
             this.timer.Change(DueTime, Period);
         }
 
+        /// <inheritdoc/>
         protected override void OnClosing(CancelEventArgs e)
         {
             this.timer.Change(Timeout.Infinite, Timeout.Infinite);

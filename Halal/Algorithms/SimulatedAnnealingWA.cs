@@ -5,6 +5,7 @@
     using System.Linq;
     using Halal.Problems.WorkAssignment;
 
+    /// <inheritdoc/>
     public sealed class SimulatedAnnealingWA : Algorithm<Person, Rate>
     {
         private const double K = 1;
@@ -15,6 +16,10 @@
         private Solution temporary;
         private double temperature = 1;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimulatedAnnealingWA"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public SimulatedAnnealingWA(Problem problem)
             : base(problem)
         {
@@ -24,10 +29,12 @@
             this.temporary = this.GetNextSolution(null, null);
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Simulated Annealing";
 
         private new Problem Problem => base.Problem as Problem;
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             foreach (Rate rate in this.temporary)

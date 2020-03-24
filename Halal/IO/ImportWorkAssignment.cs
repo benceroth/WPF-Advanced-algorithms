@@ -1,13 +1,12 @@
 ﻿namespace Halal.IO
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Halal.Problems.WorkAssignment;
 
+    /// <inheritdoc/>
     public class ImportWorkAssignment : Import<Problem>
     {
+        /// <inheritdoc/>
         protected override Problem FromText(string[][] text)
         {
             int rows = text.Length - 1;

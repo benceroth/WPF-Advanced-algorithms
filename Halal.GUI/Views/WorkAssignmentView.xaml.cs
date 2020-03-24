@@ -9,11 +9,17 @@
     /// </summary>
     public partial class WorkAssignmentView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkAssignmentView"/> class.
+        /// </summary>
         public WorkAssignmentView()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Gets ViewModel.
+        /// </summary>
         public WorkAssignmentViewModel ViewModel => this.DataContext as WorkAssignmentViewModel;
 
         private void Start_Click(object sender, RoutedEventArgs e)

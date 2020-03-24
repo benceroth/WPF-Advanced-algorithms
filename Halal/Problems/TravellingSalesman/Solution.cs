@@ -3,13 +3,20 @@
     using System;
     using System.Linq;
 
+    /// <inheritdoc/>
     public sealed class Solution : Solution<Town>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Solution"/> class.
+        /// </summary>
+        /// <param name="dimensionCount">Indicates dimensions of an element.</param>
+        /// <param name="capacity">Initial capacity.</param>
         public Solution(int dimensionCount = 2, int capacity = 1000)
             : base(dimensionCount, capacity)
         {
         }
 
+        /// <inheritdoc/>
         public override double CalculateFitness()
         {
             double fitness = 0;
@@ -26,6 +33,12 @@
             return fitness;
         }
 
+        /// <summary>
+        /// Calculates fitness between two towns.
+        /// </summary>
+        /// <param name="first">First town.</param>
+        /// <param name="second">Second town.</param>
+        /// <returns>Fitness.</returns>
         internal double CalculateFitnessBetween(Town first, Town second)
         {
             if (first.Count != second.Count)

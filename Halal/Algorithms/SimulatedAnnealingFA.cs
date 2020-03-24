@@ -4,6 +4,7 @@
     using System.Linq;
     using Halal.Problems.FunctionApproximation;
 
+    /// <inheritdoc/>
     public sealed class SimulatedAnnealingFA : Algorithm<Value, Coefficient>
     {
         private const double K = 1;
@@ -14,6 +15,10 @@
         private Solution temporary;
         private double temperature = 1;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimulatedAnnealingFA"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public SimulatedAnnealingFA(Problem problem)
             : base(problem)
         {
@@ -23,8 +28,10 @@
             this.temporary = this.GetNextSolution(null, null);
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Simulated Annealing";
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             foreach (Coefficient coefficient in this.temporary)

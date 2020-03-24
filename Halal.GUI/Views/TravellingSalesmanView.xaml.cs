@@ -9,11 +9,17 @@
     /// </summary>
     public partial class TravellingSalesmanView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TravellingSalesmanView"/> class.
+        /// </summary>
         public TravellingSalesmanView()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Gets ViewModel.
+        /// </summary>
         public TravellingSalesmanViewModel ViewModel => this.DataContext as TravellingSalesmanViewModel;
 
         private void Start_Click(object sender, RoutedEventArgs e)

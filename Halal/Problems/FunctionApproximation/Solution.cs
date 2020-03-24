@@ -3,16 +3,23 @@
     using System;
     using System.Linq;
 
+    /// <inheritdoc/>
     public sealed class Solution : Solution<Coefficient>
     {
         private readonly Problem<Value> problem;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Solution"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
+        /// <param name="capacity">Initial capacity.</param>
         public Solution(Problem<Value> problem, int capacity = 1000)
             : base(1, capacity)
         {
             this.problem = problem ?? throw new ArgumentNullException(nameof(problem));
         }
 
+        /// <inheritdoc/>
         public override double CalculateFitness()
         {
             double fitness = 0;
@@ -20,7 +27,7 @@
             {
                 throw new InvalidOperationException("Not matching coefficient count (5)");
             }
-            else if (this.Any(x => !x.IsValid(this.dimensionCount)))
+            else if (this.Any(x => !x.IsValid(this.DimensionCount)))
             {
                 throw new InvalidOperationException("Not matching dimensions!");
             }

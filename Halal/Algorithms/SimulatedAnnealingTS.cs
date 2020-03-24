@@ -4,6 +4,7 @@
     using System.Linq;
     using Halal.Problems.TravellingSalesman;
 
+    /// <inheritdoc/>
     public sealed class SimulatedAnnealingTS : Algorithm<Town, Town>
     {
         private const double K = 1;
@@ -14,6 +15,10 @@
         private Solution temporary;
         private double temperature = 1;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SimulatedAnnealingTS"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public SimulatedAnnealingTS(Problem problem)
             : base(problem)
         {
@@ -23,8 +28,10 @@
             this.temporary = this.GetNextSolution(null, null);
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Simulated Annealing";
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             foreach (Town town in this.temporary)

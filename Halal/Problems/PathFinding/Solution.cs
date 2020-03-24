@@ -3,14 +3,22 @@
     using System;
     using System.Linq;
 
+    /// <inheritdoc/>
     public sealed class Solution : Solution<Move>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Solution"/> class.
+        /// </summary>
+        /// <param name="start">Start position.</param>
+        /// <param name="dimensionCount">Indicating dimensions of an element.</param>
+        /// <param name="capacity">Initial capacity.</param>
         public Solution(Move start, int dimensionCount = 2, int capacity = 1000)
             : base(dimensionCount, capacity)
         {
             this.Add(start ?? throw new ArgumentNullException(nameof(start)));
         }
 
+        /// <inheritdoc/>
         public override double CalculateFitness()
         {
             double fitness = 0;

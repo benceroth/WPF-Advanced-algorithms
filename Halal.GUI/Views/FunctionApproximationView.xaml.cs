@@ -9,11 +9,17 @@
     /// </summary>
     public partial class FunctionApproximationView : UserControl
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FunctionApproximationView"/> class.
+        /// </summary>
         public FunctionApproximationView()
         {
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Gets ViewModel.
+        /// </summary>
         public FunctionApproximationViewModel ViewModel => this.DataContext as FunctionApproximationViewModel;
 
         private void Start_Click(object sender, RoutedEventArgs e)

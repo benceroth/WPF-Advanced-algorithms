@@ -4,10 +4,15 @@
     using System.Linq;
     using Halal.Problems.WorkAssignment;
 
+    /// <inheritdoc/>
     public sealed class HillClimbingStochasticWA : Algorithm<Person, Rate>
     {
         private const double Epsilon = 0.001;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HillClimbingStochasticWA"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public HillClimbingStochasticWA(Problem problem)
             : base(problem)
         {
@@ -16,10 +21,12 @@
             this.Solution.AddRange(this.GetRandomRates());
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Hill Climbing Stochastic";
 
         private new Problem Problem => base.Problem as Problem;
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             foreach (Rate rate in this.Solution)

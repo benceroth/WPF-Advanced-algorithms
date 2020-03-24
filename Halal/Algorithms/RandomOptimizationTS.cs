@@ -5,8 +5,13 @@
     using System.Linq;
     using Halal.Problems.TravellingSalesman;
 
+    /// <inheritdoc/>
     public sealed class RandomOptimizationTS : Algorithm<Town, Town>
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RandomOptimizationTS"/> class.
+        /// </summary>
+        /// <param name="problem">Problem to be solved.</param>
         public RandomOptimizationTS(Problem problem)
             : base(problem)
         {
@@ -15,8 +20,10 @@
             this.Solution.AddRange(problem.OrderBy(x => this.Random.NextDouble()));
         }
 
+        /// <inheritdoc/>
         public override string Name { get; protected set; } = "Random Optimization";
 
+        /// <inheritdoc/>
         public override void DoOneIteration()
         {
             var next = Enumerable.Range(0, Environment.ProcessorCount)
