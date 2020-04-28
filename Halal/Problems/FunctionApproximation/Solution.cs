@@ -43,6 +43,6 @@
             return fitness;
         }
 
-        private double CalculateY(double x, double[] coefficients) => (coefficients[0] * Math.Pow(x - coefficients[1], 3)) + (coefficients[2] * Math.Pow(x - coefficients[3], 2)) + coefficients[3];
+        private double CalculateY(double x, double[] coefficients) => (coefficients[0] * Math.Pow(x - coefficients[1], 3)) + (coefficients[2] * Math.Pow(x - coefficients[3], 2)) + coefficients[4];
     }
 }
