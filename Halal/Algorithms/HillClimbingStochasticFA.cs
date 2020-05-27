@@ -44,7 +44,7 @@
             return solution;
         }
 
-        private double GetNextValue(Coefficient coefficient) => this.Random.NextDouble() >= 0 ? coefficient.Value + Epsilon : coefficient.Value - Epsilon;
+        private double GetNextValue(Coefficient coefficient) => this.Random.NextDouble() >= 0.5 ? coefficient.Value + Epsilon : coefficient.Value - Epsilon;
 
         private Coefficient GetRandomCoefficient() => new Coefficient(new[] { this.NormalDistRandom.Sample() });
 
