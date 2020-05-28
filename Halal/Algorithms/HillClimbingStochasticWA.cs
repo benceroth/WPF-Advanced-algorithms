@@ -79,7 +79,9 @@
             }
         }
 
-        private double GetNextValue(Rate rate) => this.Random.NextDouble() >= 0.5 ? rate.Value + Epsilon : ((rate.Value - Epsilon) > 0 ? rate.Value - Epsilon : 0);
+        private double GetNextValue(Rate rate) => this.Random.NextDouble() >= 0.5 ?
+            (rate.Value + Epsilon <= this.Problem.RequestedTime ? rate.Value + Epsilon : this.Problem.RequestedTime) :
+            ((rate.Value - Epsilon) > 0 ? rate.Value - Epsilon : 0);
 
         private Rate GetNextRate(Rate rate) => new Rate(new[] { this.GetNextValue(rate) });
     }

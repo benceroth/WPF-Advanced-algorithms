@@ -4,17 +4,17 @@
     using System.Collections.Generic;
     using System.Linq;
     using Halal.Problems.WorkAssignment;
+    using MathNet.Numerics.Random;
 
     /// <inheritdoc/>
     public sealed class SimulatedAnnealingWA : Algorithm<Person, Rate>
     {
-        private const double K = 1;
-        private const double Alfa = 2;
-        private const double Epsilon = 0.0001;
-        private const double MaxTemperature = 10000;
+        private const double K = 1.0 / 100000;
+        private const double Epsilon = 0.001;
+        private const double TEpsilon = 0.001;
 
         private Solution temporary;
-        private double temperature = 1;
+        private double temperature = 10000;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimulatedAnnealingWA"/> class.
@@ -50,13 +50,15 @@
                     {
                         this.Solution = next;
                     }
+                    break;
                 }
-                else if (diff > 5)
+                else if(diff > 1) // Beragadás miatt.
                 {
                     this.temperature = this.GetTemperature();
                     if (this.Random.NextDouble() < this.GetProbability(diff))
                     {
                         this.temporary = next;
+                        break;
                     }
                 }
             }
@@ -73,7 +75,7 @@
 
             for (int i = 0; i < this.Problem.Count; i++)
             {
-                var element = solution[i];
+                var element = solution.ElementAt(i);
                 if (element != newRate)
                 {
                     var value = element.Value + (diff * element.Value / sum);
@@ -110,11 +112,13 @@
             }
         }
 
-        private double GetProbability(double diff) => Math.Pow(Math.E, -Math.Abs(diff) / (K * this.temperature));
+        private double GetProbability(double diff) => Math.Pow(Math.E, - diff / (K * this.temperature));
 
-        private double GetTemperature() => MaxTemperature * Math.Pow(1 - (this.temperature / MaxTemperature), Alfa);
+        private double GetTemperature() => this.temperature * (1 - TEpsilon);
 
-        private double GetNextValue(Rate rate) => this.Random.NextDouble() >= 0.5 ? rate.Value + Epsilon : ((rate.Value - Epsilon) > 0 ? rate.Value - Epsilon : 0);
+        private double GetNextValue(Rate rate) => this.Random.NextDouble() >= 0.5 ? 
+            (rate.Value + Epsilon <= this.Problem.RequestedTime ? rate.Value + Epsilon : this.Problem.RequestedTime) : 
+            ((rate.Value - Epsilon) > 0 ? rate.Value - Epsilon : 0);
 
         private Rate GetNextRate(Rate rate) => new Rate(new[] { this.GetNextValue(rate) });
     }
