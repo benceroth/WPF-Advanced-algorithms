@@ -1,4 +1,4 @@
-# HalAl
+# WPF-Advanced-algorithms
 Advanced algorithms to solve specific problems. Codebase contains a library and a WPF project. The library defines the base structure, algoritms and problems; WPF visualizes in real time the algorithms behaviors.
 
 ## Building
