@@ -15,8 +15,8 @@
         /// <inheritdoc/>
         public override void Setup()
         {
-            this.PlotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
-            this.PlotModel.Series.Add(new ColumnSeries());
+            this.PlotModel.Axes.Add(new CategoryAxis { Position = AxisPosition.Left });
+            this.PlotModel.Series.Add(new BarSeries());
             base.Setup();
         }
 
@@ -24,7 +24,7 @@
         protected override void Plot()
         {
             this.PlotModel.Title = this.GetTitle();
-            var series = (ColumnSeries)this.PlotModel.Series.First();
+            var series = (BarSeries)this.PlotModel.Series.First();
             series.Items.Clear();
             series.Items.AddRange(this.GetSolutionDataPoints());
         }
@@ -35,6 +35,6 @@
 
         private double GetRoundedQuality() => Math.Round(((Solution)this.Algorithm.Solution).CalculateQuality(), FractionalDigits);
 
-        private IEnumerable<ColumnItem> GetSolutionDataPoints() => this.Algorithm.Solution.Select(element => new ColumnItem(element.Value));
+        private IEnumerable<BarItem> GetSolutionDataPoints() => this.Algorithm.Solution.Select(element => new BarItem(element.Value));
     }
 }
